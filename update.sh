@@ -6,7 +6,7 @@ dir() {
 }
 
 dot() {
-    ln -sf "$HOME/dotfiles/$1" "$HOME/.${2:-$1}"
+    ln -sfn "$HOME/dotfiles/$1" "$HOME/.${2:-$1}"
 }
 
 dot profile
@@ -31,8 +31,8 @@ dot vim/syntax
 dir local/share/nvim/site/autoload
 dot vim/plug.vim local/share/nvim/site/autoload/plug.vim
 
-ln -sf ".vim/init.vim" "$HOME/.vimrc"
-ln -sf "$HOME/.config/nvim" "../.vim"
+ln -sfn ".vim/init.vim" "$HOME/.vimrc"
+ln -sfn "$HOME/.config/nvim" "../.vim"
 
 dir local/bin
 dot bin/fftmp local/bin/fftmp
