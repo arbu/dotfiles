@@ -1,0 +1,50 @@
+# Set custom prompt
+autoload -Uz promptinit
+promptinit
+prompt adam1
+
+# Initialize completion
+autoload -Uz compinit
+compinit
+zstyle ':completion:*' menu select
+
+# Colorize terminal
+alias ls='ls -G'
+alias ll='ls -lG'
+export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
+export GREP_OPTIONS="--color"
+
+# Nicer history
+export HISTSIZE=100000
+export HISTFILE="$HOME/.zsh_history"
+export SAVEHIST=$HISTSIZE
+
+# By default, zsh considers many characters part of a word (e.g., _ and -).
+# Narrow that down to allow easier skipping through words via M-f and M-b.
+export WORDCHARS='*?[]~&;!$%^<>'
+
+# History search cursor EOL
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+# Edit the current command line in editor
+autoload -Uz edit-command-line
+zle -N edit-command-line
+
+# Extra key-bindings
+bindkey "^[[H" beginning-of-line                        # home
+bindkey "^[[F" end-of-line                              # end
+bindkey "^[[A" up-line-or-beginning-search              # up
+bindkey "^[[B" down-line-or-beginning-search            # down
+bindkey "^[[1;5C" forward-word                          # ctrl-right
+bindkey "^[[1;5D" backward-word                         # ctrl-left
+bindkey "^[[1;2D" beginning-of-line                     # shift-left
+bindkey "^[[1;2C" end-of-line                           # shift-right
+bindkey "^[[3~" delete-char                             # del
+bindkey '\C-x\C-e' edit-command-line
+
+# Syntax highlighting
+if [[ -r /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi

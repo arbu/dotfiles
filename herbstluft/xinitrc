@@ -1,0 +1,26 @@
+#! /bin/bash
+
+FT2_SUBPIXEL_HINTING=1
+
+if [[ `cat /etc/hostname` == bjork ]]; then
+    # set properties for TrackPoint
+    xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 1
+    xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 2
+    xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Timeout" 200
+    xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 6 7 4 5
+    xinput set-prop "TPPS/2 IBM TrackPoint" "Device Accel Constant Deceleration" 0.75
+
+    # load color profile
+    xcalib -d :0 $HOME/.local/share/color/icc/x200.icc
+fi
+
+redshift &
+
+# load resource config
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+
+# propagate systemd
+/etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+
+# start herbstluft
+herbstluftwm

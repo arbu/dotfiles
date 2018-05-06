@@ -1,0 +1,9 @@
+si_date
+si_time
+si_volume
+si_battery BAT0
+if [[ `cat /etc/hostname` == bjork ]]; then
+    si_network wls1
+    si_diskusage /dev/sda2
+    si_diskusage /dev/mapper/home
+fi

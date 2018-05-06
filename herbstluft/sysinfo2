@@ -1,0 +1,63 @@
+#! /bin/sh
+
+si_date() {
+	date +"%a, %F |" | tr "[A-Z\n]" "[a-z ]"
+}
+
+si_time() {
+	date +"%I:%M %P |" | tr "[\n]" "[ ]"
+}
+
+si_battery() {
+	[ -d /sys/class/power_supply/$1 ] || return
+	BAT_CAPACITY=`cat /sys/class/power_supply/$1/capacity`
+	BAT_STATUS=`cat /sys/class/power_supply/$1/status | tr "[A-Z]" "[a-z]"`
+	echo -n "$BAT_CAPACITY% ($BAT_STATUS) | "
+}
+
+si_network() {
+	[ -d /sys/class/net/$1 ] || return
+	NET_STATE=`cat /sys/class/net/$1/operstate`
+    [ "$NET_STATE" = "down" ] && return
+	echo -n "$1: "
+	if [ "$NET_STATE" = "up" ]; then
+		NET_IPV4=`ip addr show dev $1 scope global | grep -Po '(?<=inet )[0-9./]+'`
+		if [ $? -eq 0 ]; then
+			echo -n "$NET_IPV4,"
+		fi
+		NET_IPV6=`ip addr show dev $1 scope global | grep -Po '(?<=inet6 )[0-9a-f:/]+'`
+		if [ $? -eq 0 ]; then
+			false; #echo -n "$NET_IPV6,"
+		fi
+		NET_SSID=`iw dev $1 link | grep -Po '(?<=SSID: ).*$'`
+		if [ $? -eq 0 ]; then
+			echo -ne "'$NET_SSID'"
+		fi
+    else
+        echo -n "$NET_STATE"
+	fi
+	echo -n " | "
+}
+
+si_volume() {
+	echo -n "vol: "
+	if ponymix is-muted; then
+		echo -n "-muted- | "
+	else
+		VOL=`ponymix get-volume`
+		echo -n "${VOL}% | "
+	fi
+}
+
+si_diskusage() {
+	for disk in $@; do
+		df -h --output=target,avail,pcent "$disk" | tail -n+2 | sed -e 's/ \+/ /g' | tr '\n' ' '
+		echo -n "| "
+	done
+}
+
+while true; do
+	source $HOME/.config/sysinfo
+	echo
+	sleep 10
+done

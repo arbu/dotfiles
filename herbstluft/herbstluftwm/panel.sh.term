@@ -1,0 +1,18 @@
+#! /bin/bash
+
+herbstclient focus_monitor $1
+herbstclient split right 0.85
+herbstclient focus right
+
+xterm -e $HOME/.local/bin/sysinfo &
+PID=$!
+
+while ! ( ps -e | grep sysinfo); do
+	sleep .02
+done
+
+herbstclient focus left
+herbstclient focus_monitor 0
+
+herbstclient -w '(quit_panel|reload)'
+kill $PID

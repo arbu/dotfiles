@@ -1,0 +1,6 @@
+bind XF86AudioRecord blank
+bind Pause freeze
+bind XF86AudioPlay exitState
+bind XF86AudioRewind gotoFirst
+bind XF86Forward gotoLast
+bind XF86Back goto

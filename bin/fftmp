@@ -1,0 +1,12 @@
+#! /bin/bash
+
+{
+PROFILE=/tmp/fftmp.$$.profile
+
+mkdir $PROFILE
+
+firefox -new-instance -no-remote -profile $PROFILE $@
+
+rm -rf $PROFILE
+} >~/fftmp.log 2>~/fftmp.log
+

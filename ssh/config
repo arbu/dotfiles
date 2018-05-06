@@ -1,0 +1,42 @@
+Host droot
+    HostName blue-beam.de
+    Port 42
+    IdentityFile ~/.ssh/id_ecdsa
+Host tu1
+    HostName login1.zih.tu-dresden.de
+    User s7240016
+Host tu2
+    HostName login2.zih.tu-dresden.de
+    User s7240016
+
+Host turris
+    HostName 192.168.1.1
+    User root
+Host audur
+    SendEnv LANG LC_*
+    HostName 192.168.1.80
+Host bjork
+    HostName bjork.local
+Host tordis
+    HostName tordis.local
+
+Host turris-hidden
+    HostName 2gua7hvmmjhzg6g3.onion
+    Port 2201
+    User root
+    ProxyCommand /usr/bin/ncat --proxy 127.0.0.1:9050 --proxy-type socks5 %h %p
+Host tordis-hidden
+    HostName 2gua7hvmmjhzg6g3.onion
+    Port 2202
+    ProxyCommand /usr/bin/ncat --proxy 127.0.0.1:9050 --proxy-type socks5 %h %p
+Host audur-hidden
+    HostName 2gua7hvmmjhzg6g3.onion
+    Port 2203
+    ProxyCommand /usr/bin/ncat --proxy 127.0.0.1:9050 --proxy-type socks5 %h %p
+
+Host dns
+    HostName 10.13.37.1
+    User alarm
+Host files
+    HostName files.lan
+    User files

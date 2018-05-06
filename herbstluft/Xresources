@@ -1,0 +1,10 @@
+Xft.dpi:        96
+Xft.lcdfilter:  lcddefault
+Xft.hinting:    1
+Xft.hintstyle:  hintslight
+Xft.autohint:   0
+Xft.rgba:       rgb
+Xft.antialias:  1
+
+dzen2.font:     xft:Droid Sans Mono:size=14
+dmenu.font:     "Droid Sans Mono-14"
