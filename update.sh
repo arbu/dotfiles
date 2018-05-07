@@ -32,13 +32,13 @@ dir local/share/nvim/site/autoload
 dot vim/plug.vim local/share/nvim/site/autoload/plug.vim
 
 ln -sfn ".vim/init.vim" "$HOME/.vimrc"
-ln -sfn "$HOME/.config/nvim" "../.vim"
+ln -sfn "../.vim" "$HOME/.config/nvim"
 
 dir local/bin
 dot bin/fftmp local/bin/fftmp
 
 if [[ `cat /etc/hostname` == bjork ]]; then
-    dot herbstluft/xinitrx xinitrc
+    dot herbstluft/xinitrc xinitrc
     dot herbstluft/Xresources Xresources
     dot herbstluft/sysinfo2 local/bin/sysinfo2
     dot herbstluft/herbstluftwm config/herbstluftwm
