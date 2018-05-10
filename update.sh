@@ -37,7 +37,7 @@ ln -sfn "../.vim" "$HOME/.config/nvim"
 dir local/bin
 dot bin/fftmp local/bin/fftmp
 
-if [[ `cat /etc/hostname` == bjork ]]; then
+if [ "`cat /etc/hostname`" = "bjork" ]; then
     dot herbstluft/xinitrc xinitrc
     dot herbstluft/Xresources Xresources
     dot herbstluft/sysinfo2 local/bin/sysinfo2
