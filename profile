@@ -6,6 +6,8 @@ elif command -v vim >/dev/null 2>&1; then
     export VISUAL=vim
 fi
 
+set PAGER=less
+
 if [[ "$TERM" = "xterm-termite" ]]; then
     alias ssh='TERM=xterm-color ssh'
 elif [[ "$TERM" = "linux" ]]; then

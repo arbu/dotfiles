@@ -2,6 +2,7 @@ autoload -U is-at-least
 if is-at-least 5.0; then
     export ZSH=$HOME/dotfiles/oh-my-zsh
     ZSH_THEME="flazz"
+    DISABLE_AUTO_UPDATE="true"
     plugins=(git comand-not-found)
     source $ZSH/oh-my-zsh.sh
 else
