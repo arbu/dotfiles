@@ -1,10 +1,20 @@
 autoload -U is-at-least
 if is-at-least 5.0; then
     export ZSH=$HOME/dotfiles/oh-my-zsh
-    ZSH_THEME="flazz"
+    ZSH_THEME=""
     DISABLE_AUTO_UPDATE="true"
     plugins=(git comand-not-found)
     source $ZSH/oh-my-zsh.sh
+
+    fpath=( "$HOME/dotfiles/zsh-functions" $fpath )
+    autoload -U promptinit
+    promptinit
+    if [[ "$USER" == "root" ]]; then
+        PURE_PROMPT_SYMBOL="#"
+    else
+        PURE_PROMPT_SYMBOL="%%"
+    fi
+    prompt pure
 else
     source $HOME/dotfiles/zshrc-min
 fi
