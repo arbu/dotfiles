@@ -3,3 +3,5 @@
 	email = arbudev@gmail.com
 [push]
 	default = simple
+[color]
+	ui = auto

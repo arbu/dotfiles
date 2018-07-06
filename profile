@@ -19,6 +19,8 @@ alias batcount='while true; do clear; cat /sys/class/power_supply/BAT0/capacity;
 
 alias ls='ls --color=auto'
 alias ll='ls -ahl'
+alias ip='ip --color'
+alias ipb='ip --color --brief'
 alias mnt='sudo mount -o uid=`id -u`,gid=`id -g`'
 alias btoff='sudo rfkill block bluetooth; sudo rfkill block wwan'
 alias inet='sudo ifconfig enp0s25 up && sudo dhcpcd enp0s25'
@@ -26,7 +28,10 @@ alias vpn='sudo systemctl start openvpn-client@home'
 alias novpn='sudo systemctl stop openvpn-client@home'
 alias rename='perl-rename -v'
 alias n='nvim'
-alias mpa="mpv --no-video"
+alias mpa='mpv --no-video'
+alias yaourt='echo -n "did you mean pakku?"; read; yaourt'
+alias steamidle='ionice -c 3 -p $(pgrep ^steam\$)'
+alias steamnice='ionice -c 2 -p $(pgrep ^steam\$)'
 
 mkcd() {
     mkdir -p "$1" && cd "$1"

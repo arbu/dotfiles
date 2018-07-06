@@ -1,7 +1,7 @@
 Host droot
     HostName blue-beam.de
     Port 42
-    IdentityFile ~/.ssh/id_ecdsa
+    IdentityFile ~/.ssh/id_ed25519
 Host tu1
     HostName login1.zih.tu-dresden.de
     User s7240016
