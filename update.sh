@@ -17,7 +17,6 @@ dir ssh
 dot ssh/config
 dot gitconfig
 dot nethackrc
-dot pam_environment
 
 dot htop config/htop
 dot pdfpc config/pdfpc
