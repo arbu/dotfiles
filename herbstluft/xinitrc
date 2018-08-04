@@ -22,5 +22,9 @@ redshift &
 # propagate systemd
 /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
+eval $(ssh-agent)
+
 # start herbstluft
 herbstluftwm
+
+kill $SSH_AGENT_PID
