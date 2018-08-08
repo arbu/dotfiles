@@ -33,6 +33,7 @@ alias yaourt='echo -n "did you mean pakku?"; read; yaourt'
 alias steamidle='ionice -c 3 -p $(pgrep ^steam\$)'
 alias steamnice='ionice -c 2 -p $(pgrep ^steam\$)'
 alias sc='sc-im'
+alias yu='pakku -Syuu'
 
 mkcd() {
     mkdir -p "$1" && cd "$1"
