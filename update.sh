@@ -22,6 +22,7 @@ dot htop config/htop
 dot pdfpc config/pdfpc
 
 dir vim/after
+dir vim/undo
 dot vim/init.vim
 dot vim/after/ftplugin
 dot vim/after/syntax
@@ -38,7 +39,7 @@ ln -sfn "../.vim" "$HOME/.config/nvim"
 dir local/bin
 dot bin/fftmp local/bin/fftmp
 
-if [ "`cat /etc/hostname`" = "bjork" ]; then
+if [ "`hostname`" = "bjork" ]; then
     dot herbstluft/xinitrc xinitrc
     dot herbstluft/Xresources Xresources
     dot herbstluft/sysinfo2 local/bin/sysinfo2
