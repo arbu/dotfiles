@@ -23,15 +23,14 @@ dot pdfpc config/pdfpc
 
 dir vim/after
 dir vim/undo
+dir vim/autoload
 dot vim/init.vim
 dot vim/after/ftplugin
 dot vim/after/syntax
 dot vim/colors
 dot vim/ftdetect
 dot vim/syntax
-
-dir local/share/nvim/site/autoload
-dot vim/plug.vim local/share/nvim/site/autoload/plug.vim
+dot vim/autoload/plug.vim
 
 ln -sfn ".vim/init.vim" "$HOME/.vimrc"
 ln -sfn "../.vim" "$HOME/.config/nvim"

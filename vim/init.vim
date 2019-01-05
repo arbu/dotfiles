@@ -100,7 +100,9 @@ end
 if has('nvim')
     set mouse=c
     " set nocompatible
-    call plug#begin()
+end
+
+call plug#begin()
     Plug 'peterhoeg/vim-qml'
     Plug 'artoj/qmake-syntax-vim'
     Plug 'octol/vim-cpp-enhanced-highlight'
@@ -116,9 +118,7 @@ if has('nvim')
     " LaTeX
     Plug 'LaTeX-Box-Team/LaTeX-Box'
     let maplocalleader = "\\"
-
-    call plug#end()
-end
+call plug#end()
 
 if has('persistent_undo')
     set undofile                        " Save undo's after file closes
