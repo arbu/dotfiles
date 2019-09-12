@@ -19,8 +19,8 @@ dot gitconfig
 dot nethackrc
 
 dir config
-dot htop config/htop
-dot pdfpc config/pdfpc
+dot htop config/
+dot pdfpc config/
 dot compton.conf config/
 
 dir vim/after
@@ -38,7 +38,7 @@ ln -sfn ".vim/init.vim" "$HOME/.vimrc"
 ln -sfn "../.vim" "$HOME/.config/nvim"
 
 dir local/bin
-dot bin/fftmp local/bin/fftmp
+dot bin/fftmp local/bin/
 
 if [ "`hostname`" = "bjork" ]; then
     dot herbstluft/xinitrc xinitrc
