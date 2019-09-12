@@ -107,6 +107,7 @@ call plug#begin()
     Plug 'artoj/qmake-syntax-vim'
     Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'dpelle/vim-LanguageTool'
+    Plug 'w0rp/ale'
 
     " Markdown
     Plug 'vim-pandoc/vim-pandoc'
