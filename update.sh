@@ -18,8 +18,10 @@ dot ssh/config
 dot gitconfig
 dot nethackrc
 
+dir config
 dot htop config/htop
 dot pdfpc config/pdfpc
+dot compton.conf config/
 
 dir vim/after
 dir vim/undo
