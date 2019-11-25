@@ -21,7 +21,7 @@ dot nethackrc
 dir config
 dot htop config/
 dot pdfpc config/
-dot compton.conf config/
+dot picom.conf config/
 
 dir vim/after
 dir vim/undo
