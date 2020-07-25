@@ -6,6 +6,10 @@ Host django
     HostName django
     IdentityFile ~/.ssh/id_ed25519
     ProxyJump droot
+Host omni
+    HostName omni
+    IdentityFile ~/.ssh/id_ed25519
+    ProxyJump droot
 Host tud
     HostName login.zih.tu-dresden.de
     User s7240016

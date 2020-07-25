@@ -127,3 +127,17 @@ if has('persistent_undo')
     set undolevels=1000                 " How many undos
     set undoreload=10000                " number of lines to save for undo
 end
+
+" The following will automatically toggle paste mode in most terminals
+
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+    set pastetoggle=<Esc>[201~
+    set paste
+    return ""
+endfunction
+

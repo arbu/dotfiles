@@ -53,7 +53,7 @@ sign-key() {
 }
 
 f() {
-    grep -Rn --color=always "$@" | less -R
+    grep -Rn --color=always "$@" | cut -c 1-240 | less -R
 }
 
 vga() {

@@ -13,6 +13,7 @@ if is-at-least 5.0; then
     else
         PURE_PROMPT_SYMBOL="%%"
     fi
+    zstyle :prompt:pure:git:stash show yes
     prompt pure
 
     source "$HOME/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
