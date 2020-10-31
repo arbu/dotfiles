@@ -103,9 +103,7 @@ if has('nvim')
 end
 
 call plug#begin()
-    Plug 'peterhoeg/vim-qml'
-    Plug 'artoj/qmake-syntax-vim'
-    Plug 'octol/vim-cpp-enhanced-highlight'
+    Plug 'sheerun/vim-polyglot'
     Plug 'dpelle/vim-LanguageTool'
     Plug 'dense-analysis/ale'
 
@@ -113,7 +111,6 @@ call plug#begin()
     Plug 'vim-pandoc/vim-pandoc'
     Plug 'vim-pandoc/vim-pandoc-syntax'
     Plug 'godlygeek/tabular'
-    Plug 'plasticboy/vim-markdown'
     set conceallevel=2
 
     " LaTeX
