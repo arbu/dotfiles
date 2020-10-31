@@ -1,4 +1,5 @@
-DOTFILES="${0:A:h}"
+ZSHRC="${(%):-%N}"
+DOTFILES="${ZSHRC:A:h}"
 autoload -U is-at-least
 if is-at-least 5.0; then
     export ZSH="$DOTFILES/oh-my-zsh"
