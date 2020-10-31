@@ -1,12 +1,14 @@
 #! /bin/sh
-set -e
+set -eux
+
+DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 
 dir() {
     mkdir -p "$HOME/.$1"
 }
 
 dot() {
-    ln -sfn "$HOME/dotfiles/$1" "$HOME/.${2:-$1}"
+    ln -sfn "$DOTFILES/$1" "$HOME/.${2:-$1}"
 }
 
 dot profile

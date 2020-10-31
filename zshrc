@@ -1,11 +1,12 @@
+DOTFILES="${0:A:h}"
 autoload -U is-at-least
 if is-at-least 5.0; then
-    export ZSH="$HOME/dotfiles/oh-my-zsh"
+    export ZSH="$DOTFILES/oh-my-zsh"
     ZSH_THEME=""
     DISABLE_AUTO_UPDATE="true"
     source "$ZSH/oh-my-zsh.sh"
 
-    fpath=( "$HOME/dotfiles/zsh-functions" $fpath )
+    fpath=( "$DOTFILES/zsh-functions" $fpath )
     autoload -U promptinit
     promptinit
     if [[ "$USER" == "root" ]]; then
@@ -16,9 +17,11 @@ if is-at-least 5.0; then
     zstyle :prompt:pure:git:stash show yes
     prompt pure
 
-    source "$HOME/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+    if [[ -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+        source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    fi
 else
-    source "$HOME/dotfiles/zshrc-min"
+    source "$DOTFILES/zshrc-min"
 fi
 
 source "$HOME/.profile"
