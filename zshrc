@@ -21,6 +21,9 @@ if is-at-least 5.0; then
     if [[ -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
         source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     fi
+
+    autoload -Uz run-help
+    unalias run-help
 else
     source "$DOTFILES/zshrc-min"
 fi

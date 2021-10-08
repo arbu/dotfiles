@@ -6,7 +6,9 @@ elif command -v vim >/dev/null 2>&1; then
     export VISUAL=vim
 fi
 
-set PAGER=less
+export EDITOR=$VISUAL
+
+export PAGER=less
 
 if [[ "$TERM" = "xterm-termite" ]]; then
     alias ssh='TERM=xterm-color ssh'
@@ -36,7 +38,7 @@ alias sc='sc-im'
 alias yu='pakku -Syuu'
 
 mkcd() {
-    mkdir -p "$1" && cd "$1"
+    mkdir -p "$1" && cd "$1" || return
 }
 
 c() {
@@ -45,7 +47,7 @@ c() {
   done
 }
 
-sign-key() {
+signkey() {
     gpg --recv-keys "$1" &&
     gpg --fingerprint "$1" &&
     gpg --sign-key "$1" &&
