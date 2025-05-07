@@ -16,6 +16,10 @@ elif [[ "$TERM" = "linux" ]]; then
     alias nvim='TERM=xterm-256color nvim'
 fi
 
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 alias battery='echo "`cat /sys/class/power_supply/BAT0/capacity`% (`cat /sys/class/power_supply/BAT0/status | tr "[A-Z]" "[a-z]"`)"'
 alias batcount='while true; do clear; cat /sys/class/power_supply/BAT0/capacity; sleep 60; done'
 
@@ -72,4 +76,10 @@ lvds() {
     sleep 1
     herbstclient detect_monitors --no-disjoin
     herbstclient reload
+}
+
+add_pass() {
+    pass insert -e "$1/url" && \
+    pass insert -e "$1/login" && \
+    pass generate -c "$1/password" 16
 }
